@@ -1,6 +1,4 @@
-libraries{
-    merge = true
-    steps{
+steps{
     unit_test{
         stage = "Unit Test"
         image = "maven"
@@ -8,7 +6,7 @@ libraries{
     }
 }
    
-}
+
 
 
 
