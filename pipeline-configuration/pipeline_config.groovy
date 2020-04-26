@@ -1,6 +1,6 @@
 libraries{
     merge = true
-    maven
+    gradle
    
 }
 
