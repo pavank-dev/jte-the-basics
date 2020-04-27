@@ -1,11 +1,14 @@
 package org.foo
-class Utilities {
-  static def mvn(script, args) {
-    script.sh "${script.tool 'Maven'}/bin/mvn -s ${script.env.HOME}/jenkins.xml -o ${args}"
+class Utilities implements Serializable {
+  def steps
+  Utilities(steps) {this.steps = steps}
+  def mvn(args) {
+    steps.sh "${steps.tool 'Maven'}/bin/mvn -o ${args}"
   }
 }
 
-@Library('utils') import static org.foo.Utilities.*
+@Library('utils') import org.foo.Utilities
+def utils = new Utilities(this)
 node {
-  mvn this, 'clean package'
+  utils.mvn 'clean package'
 }
