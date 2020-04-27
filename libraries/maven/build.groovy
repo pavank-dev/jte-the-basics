@@ -1,4 +1,3 @@
-package org.foo
 class Utilities implements Serializable {
   def steps
   Utilities(steps) {this.steps = steps}
@@ -7,7 +6,6 @@ class Utilities implements Serializable {
   }
 }
 
-@Library('utils') import org.foo.Utilities
 def utils = new Utilities(this)
 node {
   utils.mvn 'clean package'
