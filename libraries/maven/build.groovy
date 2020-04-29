@@ -7,7 +7,7 @@ void call(){
 
     proc.consumeProcessOutput(sout, serr)
    proc.waitForOrKill(1000)
-   println sout
+   println serr
         println "build from the gradle library"
 
     }
