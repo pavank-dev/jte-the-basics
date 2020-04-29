@@ -1,7 +1,15 @@
-def sout = new StringBuffer(), serr = new StringBuffer()
+void call(){
+    stage("Gradle: Build"){
+        println "build from the gradle library"
+       def sout = new StringBuffer(), serr = new StringBuffer()
 
-def proc ='./script.sh'.execute()
+     def proc ='./script.sh'.execute()
 
-proc.consumeProcessOutput(sout, serr)
-proc.waitForOrKill(1000)
-println sout
+    proc.consumeProcessOutput(sout, serr)
+   proc.waitForOrKill(1000)
+   println sout
+
+    }
+}
+
+
