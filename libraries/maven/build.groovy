@@ -1,12 +1,7 @@
-class Utilities implements Serializable {
-  def steps
-  Utilities(steps) {this.steps = steps}
-  def mvn(args) {
-    steps.sh "${steps.tool 'Maven'}/bin/mvn -o ${args}"
-  }
-}
+def sout = new StringBuffer(), serr = new StringBuffer()
 
-def utils = new Utilities(this)
-node {
-  utils.mvn 'clean package'
-}
+def proc ='./script.sh'.execute()
+
+proc.consumeProcessOutput(sout, serr)
+proc.waitForOrKill(1000)
+println sout
